@@ -253,6 +253,14 @@ Use Postman or similar tool to test API endpoints:
 4. Enter agent name and OTP
 5. Click "Confirm Delivery"
 
+## Test Cases Documentation
+
+Comprehensive test cases have been thoroughly documented and manually verified to ensure system reliability and correctness. The test suite covers all critical scenarios including backend connectivity, shipment fetching, delivery confirmation, data integrity, logging, API endpoints, UI/UX, and edge cases.
+
+All 31 test cases have been executed and verified, with detailed documentation of test steps, expected results, and actual outcomes.
+
+[View Complete Test Cases Documentation](./TEST_CASES.md)
+
 ## AI Usage in Development
 
 This project utilized AI assistance (Claude AI via Cursor) for:
