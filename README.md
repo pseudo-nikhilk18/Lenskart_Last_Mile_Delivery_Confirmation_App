@@ -4,6 +4,8 @@ A production-oriented 3-tier application for last-mile delivery confirmation, en
 
 ## System Architecture
 
+[View Detailed Architecture Diagram](./architecture/architecture.md)
+
 The system follows a strict 3-tier architecture:
 
 - **Presentation Tier**: Flutter-based Android mobile application
