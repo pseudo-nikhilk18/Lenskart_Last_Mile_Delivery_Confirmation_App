@@ -39,7 +39,6 @@ Before testing:
 **Expected Result:**
 - Server starts without errors
 - MySQL connection successful
-- Health check endpoint accessible
 
 **✅ Passed**
 
@@ -517,62 +516,7 @@ Body: {
 **Expected Result:**
 - System handles gracefully
 - Appropriate validation/error messages
-- No crashes or database errors
+- No crashes or database errors.
 
 **✅ Passed**
-
 ---
-
-## Test Results Checklist
-
-```
-Backend Connectivity: ✅
-[ ] TC-001: Backend Server Not Running
-[ ] TC-002: Backend Server Running
-
-Fetch Shipment Details: ✅
-[ ] TC-003: Fetch Valid Shipment (Pending)
-[ ] TC-004: Fetch Valid Shipment (In-Transit)
-[ ] TC-005: Fetch Valid Shipment (Delivered)
-[ ] TC-006: Fetch Invalid Shipment ID
-[ ] TC-007: Fetch with Empty Shipment ID
-[ ] TC-008: Fetch with Special Characters
-
-Delivery Confirmation - Validation: ✅
-[ ] TC-009: Confirm with Empty Fields
-[ ] TC-010: Confirm with Wrong OTP
-[ ] TC-011: Confirm with Correct OTP
-[ ] TC-012: Confirm Already Delivered
-[ ] TC-013: Confirm with Invalid Shipment ID
-
-Data Integrity: ✅
-[ ] TC-014: Verify Database Update
-[ ] TC-015: Verify Idempotency
-
-Logging: ✅
-[ ] TC-016: Verify Successful Logging
-[ ] TC-017: Verify Failed Logging
-[ ] TC-018: Verify Asynchronous Logging
-
-API Testing (Postman): ✅
-[ ] TC-019: GET Valid Shipment
-[ ] TC-020: GET Invalid Shipment
-[ ] TC-021: POST Success
-[ ] TC-022: POST Wrong OTP
-[ ] TC-023: POST Missing Fields
-[ ] TC-024: POST Already Delivered
-
-UI/UX: ✅
-[ ] TC-025: Loading Indicator
-[ ] TC-026: Error Message Display
-[ ] TC-027: Success Message Display
-[ ] TC-028: Input Field Validation
-
-Edge Cases: ✅
-[ ] TC-029: Network Interruption
-[ ] TC-030: Rapid Multiple Requests
-[ ] TC-031: Very Long Input Values
-```
-
-**31/31 tests passed**
-

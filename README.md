@@ -257,7 +257,7 @@ Use Postman or similar tool to test API endpoints:
 
 Comprehensive test cases have been thoroughly documented and manually verified to ensure system reliability and correctness. The test suite covers all critical scenarios including backend connectivity, shipment fetching, delivery confirmation, data integrity, logging, API endpoints, UI/UX, and edge cases.
 
-All 31 test cases have been executed and verified, with detailed documentation of test steps, expected results, and actual outcomes.
+All test cases have been executed and verified, with detailed documentation of test steps, expected results, and actual outcomes.
 
 [View Complete Test Cases Documentation](./TEST_CASES.md)
 
@@ -280,7 +280,7 @@ All code implementation, business logic, architectural decisions, and system int
 - OTP expiry and retry limits
 - Real-time delivery status updates
 - Analytics dashboard for delivery metrics
-- Multi-language support
+- Multi-language support.
 
 ## License
 
