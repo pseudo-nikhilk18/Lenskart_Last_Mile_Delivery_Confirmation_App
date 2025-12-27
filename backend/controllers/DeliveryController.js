@@ -37,7 +37,7 @@ const confirmDelivery = async (req, res) => {
         const status = error.status || 500;
         const message = error.message || 'Internal server error';
         
-        // Log failed delivery attempt
+        // Log failed delivery attemp
         logger.logDeliveryAttempt(
             shipmentId || 'N/A',
             deliveredBy || 'N/A',
@@ -79,8 +79,5 @@ const getShipmentDetails = async (req, res) => {
     }
 };
 
-module.exports = {
-    confirmDelivery,
-    getShipmentDetails
-};
+module.exports = {confirmDelivery,getShipmentDetails};
 

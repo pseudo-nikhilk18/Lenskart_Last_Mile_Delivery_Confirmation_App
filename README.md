@@ -263,16 +263,15 @@ All 31 test cases have been executed and verified, with detailed documentation o
 
 ## AI Usage in Development
 
-This project utilized AI assistance (Claude AI via Cursor) for:
+This project utilized AI assistance as a learning and development tool to bridge knowledge gaps and ensure industry-standard practices. Given limited prior experience with official industry documentation and best practices for modular, scalable code architecture, AI served as an educational resource in the following areas:
 
-- **Architecture Guidance**: Consultation on 3-tier architecture best practices
-- **Code Structure**: Guidance on separation of concerns and layered architecture
-- **API Design**: RESTful endpoint design and HTTP status code selection
-- **Flutter Development**: UI component structure and API integration patterns
-- **SQL Query Optimization**: Database query structure and parameterization
-- **Error Handling**: Comprehensive error handling strategies
+- **Best Practices Learning**: Understanding industry-standard patterns for 3-tier architecture, separation of concerns, and scalable code organization
+- **Technology Stack Transition**: Translating knowledge from familiar MERN stack (MongoDB, Express, React, Node.js) to the new technology stack (MySQL, Flutter) through analogies and comparative explanations
+- **Architecture Guidance**: Learning proper layered architecture patterns, including repository pattern, service layer separation, and controller responsibilities
+- **Documentation**: Assistance with professional documentation structure, technical writing, and appropriate terminology for industry-standard documentation
+- **Data Generation**: Generating sample shipment data for database seeding with realistic test scenarios
 
-All final implementation decisions, code logic, and integration were made manually. AI served as a development assistant for guidance and best practices, not as an automated code generator.
+All code implementation, business logic, architectural decisions, and system integration were executed manually. AI functioned as a learning assistant and reference guide, helping to understand and apply best practices rather than generating code automatically.
 
 ## Future Enhancements
 

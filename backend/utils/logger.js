@@ -1,6 +1,6 @@
 
 const logDeliveryAttempt = (shipmentId, agentName, success, message) => {
-    // Handle logging asynchronously to avoid blocking the response
+    // Handle logging asynchronously
     setImmediate(() => {
         const timestamp = new Date().toISOString();
         const status = success ? 'SUCCESS' : 'FAILURE';

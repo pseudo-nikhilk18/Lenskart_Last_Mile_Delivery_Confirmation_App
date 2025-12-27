@@ -65,15 +65,12 @@ const getShipmentDetails = async (shipmentId) => {
         shipment: {
             shipmentId: shipment.shipment_id,
             customerName: shipment.customer_name,
-            status: shipment.status,
-            deliveredAt: shipment.delivered_at,
+            status:shipment.status,
+            deliveredAt:shipment.delivered_at,
             deliveredBy: shipment.delivered_by
         }
     };
 };
 
-module.exports = {
-    confirmDelivery,
-    getShipmentDetails
-};
+module.exports = {confirmDelivery,getShipmentDetails};
 
