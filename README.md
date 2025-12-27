@@ -286,7 +286,4 @@ All code implementation, business logic, architectural decisions, and system int
 
 This project is developed as an assessment submission.
 
-## Contact
-
-For questions or issues, please refer to the project documentation or contact the development team.
 
