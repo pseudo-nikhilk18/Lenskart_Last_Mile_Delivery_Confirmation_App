@@ -1,4 +1,4 @@
-# Last-Mile Delivery Confirmation System
+# Last-Mile Delivery Confirmation System (Lenskart Assignment)
 
 A production-oriented 3-tier application for last-mile delivery confirmation, enabling delivery agents to verify shipments using OTP-based authentication.
 
@@ -37,7 +37,6 @@ Lenskart_Last_Mile_Delivery_App/
 │   ├── services/          # Business logic
 │   ├── repositories/      # Database queries
 │   ├── routes/            # API endpoints
-│   ├── middlewares/       # Error handling
 │   ├── utils/             # Utilities (logging)
 │   └── constants/         # Constants
 ├── mobile_app/            # Presentation Tier
