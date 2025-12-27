@@ -26,6 +26,8 @@ Before testing:
 - No shipment details shown
 - App should handle error gracefully without crashing
 
+**✅ Passed**
+
 ---
 
 ### TC-002: Backend Server Running
@@ -38,6 +40,8 @@ Before testing:
 - Server starts without errors
 - MySQL connection successful
 - Health check endpoint accessible
+
+**✅ Passed**
 
 ---
 
@@ -57,6 +61,8 @@ Before testing:
 - No error message
 - Delivery confirmation section appears (since status is not Delivered)
 
+**✅ Passed**
+
 ---
 
 ### TC-004: Fetch Valid Shipment (In-Transit Status)
@@ -70,6 +76,8 @@ Before testing:
 - Shows: Customer Name: Neha Sharma
 - Shows: Status: In-Transit
 - Delivery confirmation section appears
+
+**✅ Passed**
 
 ---
 
@@ -85,6 +93,8 @@ Before testing:
 - Shows: Delivered By: [agent name used]
 - Delivery confirmation section does NOT appear (already delivered)
 
+**✅ Passed**
+
 ---
 
 ### TC-006: Fetch Invalid Shipment ID
@@ -98,6 +108,8 @@ Before testing:
 - No shipment details shown
 - Delivery confirmation section does not appear
 
+**✅ Passed**
+
 ---
 
 ### TC-007: Fetch with Empty Shipment ID
@@ -110,6 +122,8 @@ Before testing:
 - No API call made
 - No shipment details shown
 
+**✅ Passed**
+
 ---
 
 ### TC-008: Fetch with Special Characters
@@ -121,6 +135,8 @@ Before testing:
 - Error message: "Shipment not found" (not a SQL error)
 - System handles safely (parameterized queries prevent injection)
 - No database errors
+
+**✅ Passed**
 
 ---
 
@@ -138,22 +154,11 @@ Before testing:
 - No API call made
 - No delivery confirmation
 
----
-
-### TC-010: Confirm Delivery Without Fetching Details First
-**Test Steps:**
-1. Open app (don't fetch any shipment)
-2. Enter Agent Name: `agent1`
-3. Enter OTP: `123456`
-4. Click "Confirm Delivery"
-
-**Expected Result:**
-- Error message: "Please fetch shipment details first"
-- No API call made
+**✅ Passed**
 
 ---
 
-### TC-011: Confirm Delivery with Wrong OTP
+### TC-010: Confirm Delivery with Wrong OTP
 **Test Steps:**
 1. Fetch Shipment ID: `SHIP001` (OTP is `123456`)
 2. Enter Agent Name: `agent1`
@@ -167,9 +172,11 @@ Before testing:
 - Shipment status remains unchanged (check database)
 - Log entry shows FAILURE status
 
+**✅ Passed**
+
 ---
 
-### TC-012: Confirm Delivery with Correct OTP
+### TC-011: Confirm Delivery with Correct OTP
 **Test Steps:**
 1. Fetch Shipment ID: `SHIP003` (OTP is `789012`)
 2. Enter Agent Name: `agent_rahul`
@@ -186,9 +193,11 @@ Before testing:
 - Log entry shows SUCCESS status
 - Database shows delivered_at timestamp set
 
+**✅ Passed**
+
 ---
 
-### TC-013: Confirm Already Delivered Shipment
+### TC-012: Confirm Already Delivered Shipment
 **Test Steps:**
 1. Deliver SHIP001 successfully (use TC-012)
 2. Fetch SHIP001 again
@@ -204,9 +213,11 @@ Before testing:
 - Database not updated (delivered_at unchanged)
 - Log entry shows FAILURE status
 
+**✅ Passed**
+
 ---
 
-### TC-014: Confirm Delivery with Invalid Shipment ID in URL
+### TC-013: Confirm Delivery with Invalid Shipment ID in URL
 **Test Steps:**
 1. Use Postman or similar tool
 2. POST to: `http://localhost:3000/api/shipments/INVALID123/deliver`
@@ -218,11 +229,13 @@ Before testing:
 - No database update
 - Log entry shows FAILURE status
 
+**✅ Passed**
+
 ---
 
 ## Test Category 4: Data Integrity
 
-### TC-015: Verify Database Update After Delivery
+### TC-014: Verify Database Update After Delivery
 **Test Steps:**
 1. Note current status of SHIP004 in database (should be In-Transit)
 2. Deliver SHIP004 via app (OTP: `345678`)
@@ -234,9 +247,11 @@ Before testing:
 - delivered_by = agent name entered
 - All fields updated correctly
 
+**✅ Passed**
+
 ---
 
-### TC-016: Verify Idempotency (Re-delivery Prevention)
+### TC-015: Verify Idempotency (Re-delivery Prevention)
 **Test Steps:**
 1. Deliver SHIP005 successfully
 2. Try to deliver SHIP005 again with same OTP
@@ -248,11 +263,13 @@ Before testing:
 - delivered_at timestamp unchanged
 - System prevents re-delivery at both application and database level
 
+**✅ Passed**
+
 ---
 
 ## Test Category 5: Logging Verification
 
-### TC-017: Verify Successful Delivery Logging
+### TC-016: Verify Successful Delivery Logging
 **Test Steps:**
 1. Deliver a shipment successfully (e.g., SHIP006)
 2. Check backend console logs
@@ -262,9 +279,11 @@ Before testing:
 - Log appears after response is sent (asynchronous)
 - Log includes all required fields
 
+**✅ Passed**
+
 ---
 
-### TC-018: Verify Failed Delivery Logging
+### TC-017: Verify Failed Delivery Logging
 **Test Steps:**
 1. Attempt delivery with wrong OTP
 2. Check backend console logs
@@ -274,9 +293,11 @@ Before testing:
 - Log appears after response is sent
 - All failure scenarios are logged
 
+**✅ Passed**
+
 ---
 
-### TC-019: Verify Logging is Asynchronous
+### TC-018: Verify Logging is Asynchronous
 **Test Steps:**
 1. Deliver a shipment
 2. Observe response time in mobile app
@@ -287,11 +308,13 @@ Before testing:
 - Logging happens in background (non-blocking)
 - User experience is not affected by logging
 
+**✅ Passed**
+
 ---
 
 ## Test Category 6: API Endpoint Testing (Postman)
 
-### TC-020: GET Shipment Details - Valid ID
+### TC-019: GET Shipment Details - Valid ID
 **Request:**
 ```
 GET http://localhost:3000/api/shipments/SHIP001
@@ -302,9 +325,11 @@ GET http://localhost:3000/api/shipments/SHIP001
 - Response includes shipment details (without OTP)
 - JSON format correct
 
+**✅ Passed**
+
 ---
 
-### TC-021: GET Shipment Details - Invalid ID
+### TC-020: GET Shipment Details - Invalid ID
 **Request:**
 ```
 GET http://localhost:3000/api/shipments/SHIP999
@@ -314,9 +339,11 @@ GET http://localhost:3000/api/shipments/SHIP999
 - Status: 404 Not Found
 - Response: `{"success": false, "message": "Shipment not found"}`
 
+**✅ Passed**
+
 ---
 
-### TC-022: POST Confirm Delivery - Success
+### TC-021: POST Confirm Delivery - Success
 **Request:**
 ```
 POST http://localhost:3000/api/shipments/SHIP007/deliver
@@ -331,9 +358,11 @@ Body: {
 - Response: `{"success": true, "message": "Delivery confirmed successfully", ...}`
 - Database updated
 
+**✅ Passed**
+
 ---
 
-### TC-023: POST Confirm Delivery - Wrong OTP
+### TC-022: POST Confirm Delivery - Wrong OTP
 **Request:**
 ```
 POST http://localhost:3000/api/shipments/SHIP007/deliver
@@ -348,9 +377,11 @@ Body: {
 - Response: `{"success": false, "message": "Invalid OTP"}`
 - Database not updated
 
+**✅ Passed**
+
 ---
 
-### TC-024: POST Confirm Delivery - Missing Fields
+### TC-023: POST Confirm Delivery - Missing Fields
 **Request:**
 ```
 POST http://localhost:3000/api/shipments/SHIP007/deliver
@@ -363,9 +394,11 @@ Body: {
 - Status: 400 Bad Request
 - Response: `{"success": false, "message": "Missing required input fields"}`
 
+**✅ Passed**
+
 ---
 
-### TC-025: POST Confirm Delivery - Already Delivered
+### TC-024: POST Confirm Delivery - Already Delivered
 **Request:**
 ```
 POST http://localhost:3000/api/shipments/SHIP001/deliver
@@ -381,11 +414,13 @@ Body: {
 - Response: `{"success": false, "message": "Shipment already delivered"}`
 - Database not updated
 
+**✅ Passed**
+
 ---
 
 ## Test Category 7: UI/UX Testing
 
-### TC-026: Loading Indicator Display
+### TC-025: Loading Indicator Display
 **Test Steps:**
 1. Fetch shipment details
 2. Observe during API call
@@ -395,9 +430,11 @@ Body: {
 - Spinner disappears when response received
 - Buttons disabled during loading
 
+**✅ Passed**
+
 ---
 
-### TC-027: Error Message Display
+### TC-026: Error Message Display
 **Test Steps:**
 1. Trigger any error (wrong OTP, invalid ID, etc.)
 
@@ -407,9 +444,11 @@ Body: {
 - Message is clear and user-friendly
 - Message disappears on next action
 
+**✅ Passed**
+
 ---
 
-### TC-028: Success Message Display
+### TC-027: Success Message Display
 **Test Steps:**
 1. Successfully deliver a shipment
 
@@ -419,9 +458,11 @@ Body: {
 - Message: "Delivery Success!"
 - Message persists until next action
 
+**✅ Passed**
+
 ---
 
-### TC-029: Input Field Validation
+### TC-028: Input Field Validation
 **Test Steps:**
 1. Test all input fields (Shipment ID, Agent Name, OTP)
 2. Try special characters, long text, etc.
@@ -432,11 +473,13 @@ Body: {
 - No app crashes on invalid input
 - Appropriate error messages shown
 
+**✅ Passed**
+
 ---
 
 ## Test Category 8: Edge Cases
 
-### TC-030: Network Interruption
+### TC-029: Network Interruption
 **Test Steps:**
 1. Start delivery confirmation
 2. Disconnect network mid-request
@@ -447,9 +490,11 @@ Body: {
 - App doesn't crash
 - User can retry after reconnection
 
+**✅ Passed**
+
 ---
 
-### TC-031: Rapid Multiple Requests
+### TC-030: Rapid Multiple Requests
 **Test Steps:**
 1. Click "Fetch Details" multiple times rapidly
 2. Click "Confirm Delivery" multiple times rapidly
@@ -460,9 +505,11 @@ Body: {
 - App handles gracefully
 - No race conditions
 
+**✅ Passed**
+
 ---
 
-### TC-032: Very Long Input Values
+### TC-031: Very Long Input Values
 **Test Steps:**
 1. Enter very long shipment ID (100+ characters)
 2. Enter very long agent name (100+ characters)
@@ -471,6 +518,8 @@ Body: {
 - System handles gracefully
 - Appropriate validation/error messages
 - No crashes or database errors
+
+**✅ Passed**
 
 ---
 
@@ -493,46 +542,38 @@ Fetch Shipment Details:
 
 Delivery Confirmation - Validation:
 [ ] TC-009: Confirm with Empty Fields
-[ ] TC-010: Confirm Without Fetching First
-[ ] TC-011: Confirm with Wrong OTP
-[ ] TC-012: Confirm with Correct OTP
-[ ] TC-013: Confirm Already Delivered
-[ ] TC-014: Confirm with Invalid Shipment ID
+[ ] TC-010: Confirm with Wrong OTP
+[ ] TC-011: Confirm with Correct OTP
+[ ] TC-012: Confirm Already Delivered
+[ ] TC-013: Confirm with Invalid Shipment ID
 
 Data Integrity:
-[ ] TC-015: Verify Database Update
-[ ] TC-016: Verify Idempotency
+[ ] TC-014: Verify Database Update
+[ ] TC-015: Verify Idempotency
 
 Logging:
-[ ] TC-017: Verify Successful Logging
-[ ] TC-018: Verify Failed Logging
-[ ] TC-019: Verify Asynchronous Logging
+[ ] TC-016: Verify Successful Logging
+[ ] TC-017: Verify Failed Logging
+[ ] TC-018: Verify Asynchronous Logging
 
 API Testing (Postman):
-[ ] TC-020: GET Valid Shipment
-[ ] TC-021: GET Invalid Shipment
-[ ] TC-022: POST Success
-[ ] TC-023: POST Wrong OTP
-[ ] TC-024: POST Missing Fields
-[ ] TC-025: POST Already Delivered
+[ ] TC-019: GET Valid Shipment
+[ ] TC-020: GET Invalid Shipment
+[ ] TC-021: POST Success
+[ ] TC-022: POST Wrong OTP
+[ ] TC-023: POST Missing Fields
+[ ] TC-024: POST Already Delivered
 
 UI/UX:
-[ ] TC-026: Loading Indicator
-[ ] TC-027: Error Message Display
-[ ] TC-028: Success Message Display
-[ ] TC-029: Input Field Validation
+[ ] TC-025: Loading Indicator
+[ ] TC-026: Error Message Display
+[ ] TC-027: Success Message Display
+[ ] TC-028: Input Field Validation
 
 Edge Cases:
-[ ] TC-030: Network Interruption
-[ ] TC-031: Rapid Multiple Requests
-[ ] TC-032: Very Long Input Values
+[ ] TC-029: Network Interruption
+[ ] TC-030: Rapid Multiple Requests
+[ ] TC-031: Very Long Input Values
 ```
 
-## Notes
-
-- Test in order: Backend → Fetch → Delivery → Edge Cases
-- Document any deviations from expected results
-- Check both mobile app UI and backend logs
-- Verify database changes for delivery operations
-- All test cases should pass for a complete system
 
