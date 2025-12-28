@@ -2,6 +2,10 @@
 
 A production-oriented 3-tier application for last-mile delivery confirmation, enabling delivery agents to verify shipments using OTP-based authentication.
 
+## Demo Video
+
+**[Watch Demo Video (Google Drive)](https://drive.google.com/file/d/1ITqJMbA4PBhvsu5NYYV-QM9nnCnPsT4D/view?usp=sharing)**
+
 ## System Architecture
 
 [View Detailed Architecture Diagram](./architecture/architecture.md)
